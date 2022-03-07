@@ -7,13 +7,13 @@ import functools, itertools
 import random, sys
 from typing import List
 
-from utils import TreeNode, Utils
+from utils import Utils
 
 class Solution:
     def replaceNonCoprimes(self, nums: List[int]) -> List[int]:
         ans = []
         for x in nums:
-            while ans and (g:=math.gcd(x, ans[-1])) != 1:
+            while ans and (g := math.gcd(x, ans[-1])) != 1:
                 x *= ans.pop() // g
             ans.append(x)
         return ans
