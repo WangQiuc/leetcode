@@ -1,0 +1,5 @@
+draft.py
+contest.py
+*.log
+*.idea
+__pycache__
