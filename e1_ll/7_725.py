@@ -7,17 +7,20 @@ from utils import ListNode, Utils
 
 class Solution:
     def splitListToParts(self, root, k):
-        node, n, ret = root, 0, []
+        node, n, ans = root, 0, []
         while node:
-            node, n = node.next, n+1
-        d, v = divmod(n, k)
+            node = node.next
+            n += 1
+        d, m = divmod(n, k)
         for i in range(k):
-            head = node = ListNode(None)
-            for _ in range(d + (i<v)):
-                node.next = node = ListNode(root.val)
-                root = root.next
-            ret.append(head.next)
-        return ret
+            head, sub_len = None, d + (i < m)
+            if sub_len:
+                head = node = root
+                for _ in range(sub_len - 1):
+                    node = node.next
+                root, node.next = node.next, None
+            ans.append(head)
+        return ans
 
 
 if __name__ == '__main__':
