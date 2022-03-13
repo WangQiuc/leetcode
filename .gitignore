@@ -3,3 +3,5 @@ contest.py
 *.log
 *.idea
 __pycache__
+.vscode
+.env

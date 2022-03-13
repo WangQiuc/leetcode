@@ -20,7 +20,6 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution().replaceNonCoprimes
-    util = Utils()
 
     print(sol(
         nums = [6,4,3,2,7,6,2]
