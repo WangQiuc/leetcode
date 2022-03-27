@@ -1,6 +1,6 @@
 __author__ = 'wangqc'
 
-# https://leetcode.com/problems/non-overlapping-intervals/
+# https://leetcode.com/problems/meeting-rooms-ii/
 
 
 class Solution:
