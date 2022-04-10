@@ -11,19 +11,18 @@ from utils import Utils
 
 class Solution:
     def maximumProduct(self, nums: List[int], k: int) -> int:
-        a = sorted(nums)
-        i, n = 1, len(a)
+        M = 10**9+7
+        nums.sort()
+        i, n = 1, len(nums)
         while i < n:
-            gap = (a[i]-a[i-1]) * i
+            gap = (nums[i]-nums[i-1]) * i
             if k < gap:
                 break
             k -= gap
             i += 1
-        base, leftover = a[i-1] + k//i, k % i
-        for j in range(i):
-            a[j] = base + (j < leftover)
-        p, M = 1, 10**9+7
-        for x in a:
+        base, leftover = nums[i-1] + k//i, k % i
+        p = (pow(base, i-leftover, M) * pow(base+1, leftover, M)) % M
+        for x in nums[i:]:
             p = (p*x) % M
         return p
 
